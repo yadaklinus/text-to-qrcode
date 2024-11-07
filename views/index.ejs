@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert text to qrcode">
+    <title>Text to qrcode</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body class="bg-light">
+    <div class="container my-4">
+        <h1>Qr code converter</h1>
+        <textarea onkeyup="change()" value="Welcome to qr converter" name="" class="form-control" id="text"></textarea>
+        <div id="image" class="text-center py-4"></div>
+    </div>
+</body>
+<script>
+    const img = document.getElementById("image")
+    img.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=400x400" alt="" title="" />`
+
+    function change(){
+        const text = document.getElementById("text").value
+       
+        console.log(text);
+
+        img.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?data=${text}&amp;size=400x400" alt="" title="" />`
+        
+    }
+</script>
+</html>
